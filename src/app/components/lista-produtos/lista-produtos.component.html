@@ -1,0 +1,32 @@
+<table class="container-xl table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NOME</th>
+      <th scope="col">DESCRIÇÃO</th>
+      <th scope="col">PREÇO</th>
+      <th scope="col">AÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{listaProdutos.length + 1}}</th>
+      <td><input type="text" [(ngModel)]="nome"></td>
+      <td><input type="text" [(ngModel)]="descricao"></td>
+      <td><input type="number" [(ngModel)]="preco"></td>
+      <td>
+        <button type="button" class="btn btn-outline-success btn-sm btn-add" (click)="adicionaProduto()">Adicionar</button>
+      </td>
+    </tr>
+    <tr *ngFor="let produto of listaProdutos; let i = index">
+      <th scope="row">{{produto.id}}</th>
+      <td>{{produto.nome}}</td>
+      <td>{{produto.descricao}}</td>
+      <td>{{produto.preco}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-warning btn-sm">Editar</button>
+        <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteProduto(i)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
